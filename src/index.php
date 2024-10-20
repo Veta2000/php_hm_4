@@ -16,7 +16,9 @@ function max_sumDig($nMax, $maxSum) {
     }
 
     $count = count($validNumbers);
-    if ($count === 0) return [0, 0, 0];
+    if ($count === 0) {
+        return [0, 0, 0];
+    }
 
     $average = $totalSum / $count;
     $closestNumber = $validNumbers[0];
@@ -39,12 +41,12 @@ function crazy_rabbit($field, $startPos) {
     $maxSteps = 1000; 
 
     while (true) {
-        if ($jumpPower === 0) return false;
-        $field[$pos] = 0; 
-
-        if (array_sum($field) === 0) return true;
-
-        $pos += $jumpPower * $direction;
+       if ($jumpPower === 0) {
+    return false;
+    }
+    if (array_sum($field) === 0) {
+    return true;
+    }
 
         
         if (in_array($pos, $visited) || $maxSteps-- <= 0) {
